@@ -1,4 +1,6 @@
-# 4. As Certificações Microsoft Azure
+# Seção 1: Introdução
+
+## 4. As Certificações Microsoft Azure
 
 São 5 Grupos:
 
