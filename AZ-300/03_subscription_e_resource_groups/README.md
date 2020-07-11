@@ -21,6 +21,7 @@ Policie é o permissionamento dentro de uma Subscription, permitindo ou bloquean
 
 Exemplo, politica de criação de vms, selecionando quais podem deixar disponível
 
+https://azure.microsoft.com/pt-br/pricing/details/virtual-machines/windows/
 https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/
 
 
@@ -106,10 +107,10 @@ abra o link e cole o codigo e selecione a conta
 Get-AzVM
 
 # listando Subscriptions
-GET-AzSubscription
+Get-AzSubscription
 
 # listando Resource
-GET-AzResource
+Get-AzResourceGroup
 ````
 
 ### CloudShell
