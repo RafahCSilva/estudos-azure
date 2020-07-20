@@ -229,10 +229,55 @@ https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
 
 ## 63. Hands On - Preparando o Lab para Load Balancer
 
+Topologia:
+- Resource Group -> WebServer App
+    - VNet -> WebServer-App
+        - SubNet -> 172.16.20.0/24
+            - Availability Set - AV-WebServerApp
+                - VM -> Web01 , 172.16.20.4
+                - VM -> Web02 , 172.16.20.5
+                - VM -> Web03 , 172.16.20.6
+            - LB
+
+- Cria um novo Resource Group, chamado "webserverapp"
+- Em Virtual Network, cria a VNet "vnet-webserverapp", com IP 172.16.0.0/16
+    - Cria a SubNet 172.16.20.0/24
+- Cria as 3 VMs 
+    - com uma Availability Set (min2 e max 5)
+    - Script para instalr o apache e editar o index para falar q é a 1 (ou a 2 ou 3)
+
 
 ## 64. Hands On - Configurando Load Balancer para Servidores Web
 
+- Vai em cada VM e desativa o ip publico de cada, para nao ter acesso a internet
+- No menu, vai em Load balancers, e add "lb-webserverapp"
+    - Type: Internal(recebe um ip privates somente) ou Public (recebe um IP public, acessivel publicamente)
+- configure ele:
+    - Frontend IP Configuration: associa a um IP publico
+    - Backend pools: os participantes do LB, q sao as VM: Web01, Web02 e Web03
+        - ao add
+        - associa a uma: Availability Set criada anteriormente
+        - selecionar as VMs como target
+    - Health Probe: monitora os servers
+        - name
+        - protocolo: HTTP (ou TCP)
+        - porta: 80
+        - Path: /
+        - Interval: 5 segundos (tempo entre os testes)
+        - unhealthy threshold: 2 (qtas falhas consecutivas para desviar o trafego dele)
+            - 5 seg x 2 = no max 10 segundos a aplicação ficará off
+    - Load Balancing Rules:
+        - add uma regra
+            - nome
+            - IP do frontend
+            - porta (q entrou): 80
+            - porta do backend (q vai ser encaminhado): 80 (poderia ser uma outra porta la no apache, como 8080)
+            - Health Probe
+            - Session Persisstence: none, ip, ip+protocol
+- Agora so restar
+    - acessa o ip publico do LB e vai dando refresh e vendo os numero q muda
+    - da stop em um das VM e nos refresh seja q o numero dela nao volta a aparecer
+    - reativa a VM, e ela volta a aparecer
+
 
 ## 65. Removendo o Resource Group
-
-
