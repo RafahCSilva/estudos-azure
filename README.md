@@ -3,7 +3,8 @@
 
 ## Certificação AZ-300 Microsoft Azure Architect Design - 2020
 
-[link do curso](https://www.udemy.com/course/certificacao-microsoft-azure-architect-technologies-az-300/)
+- [link do curso](https://www.udemy.com/course/certificacao-microsoft-azure-architect-technologies-az-300/)
+    - [link do certificado](https://www.udemy.com/certificate/UC-7b0cff55-27ce-4365-99bf-c60b8c8ef826/)
 
 
 
