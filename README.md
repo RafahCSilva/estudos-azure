@@ -7,6 +7,10 @@
     - [link do certificado](https://www.udemy.com/certificate/UC-7b0cff55-27ce-4365-99bf-c60b8c8ef826/)
 
 
+## Certificação AZ-301 Microsoft Azure Architect Design - 2020
+
+- [link do curso](https://www.udemy.com/course/certificacao-microsoft-azure-architect-design-az-301/)
+
 
 ## UDEMY video player full window
 ````javascript
