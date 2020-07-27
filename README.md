@@ -20,7 +20,10 @@ document
         ' max-height: 100vh !important;'
     )
   );
+document
+  .querySelectorAll('div[class*="curriculum-item-view--scaled-height-limiter"]')[0]
+  .scrollIntoView();
 ````
-````
-javascript:document.querySelectorAll('div[class*="curriculum-item-view--scaled-height-limiter"], div[class*="curriculum-item-view--absolute-height-limiter"]').forEach(el => el.setAttribute('style', ' height: 100% !important; max-height: 100vh !important;'));
+````javascript
+javascript:document.querySelectorAll('div[class*="curriculum-item-view--scaled-height-limiter"], div[class*="curriculum-item-view--absolute-height-limiter"]').forEach(el => el.setAttribute('style', ' height: 100% !important; max-height: 100vh !important;'));document.querySelectorAll('div[class*="curriculum-item-view--scaled-height-limiter"]')[0].scrollIntoView();
 ````
