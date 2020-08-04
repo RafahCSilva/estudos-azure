@@ -28,7 +28,14 @@ document
 document
   .querySelectorAll('div[class*="curriculum-item-view--scaled-height-limiter"]')[0]
   .scrollIntoView();
-````
-````javascript
+
+
 javascript:document.querySelectorAll('div[class*="curriculum-item-view--scaled-height-limiter"], div[class*="curriculum-item-view--absolute-height-limiter"]').forEach(el => el.setAttribute('style', ' height: 100% !important; max-height: 100vh !important;'));document.querySelectorAll('div[class*="curriculum-item-view--scaled-height-limiter"]')[0].scrollIntoView();
+````
+
+## UDEMY simulate review full height (to save pdf)
+````javascript
+document
+  .querySelectorAll('div[class*="curriculum-item-view--scaled-height-limiter--"')
+  .forEach(el => el.setAttribute( 'style', 'height: 19120px !important; max-height: 19120px !important;' ) );
 ````

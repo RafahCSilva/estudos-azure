@@ -33,7 +33,12 @@
     - `172.16.1.3` -> reservado Azure
     - `172.16.1.4` -> será o primeiro atribuido a algo
     - `172.16.1.255` -> broadcast
-
+- Além disso, você não pode adicionar os seguintes intervalos de endereços:
+     - `224.0.0.0/4` (Multicast)
+     - `255.255.255.255/32` (Broadcast)
+     - `127.0.0.0/8` (Loopback)
+     - `169.254.0.0/16` (Link-local)
+     - `168.63.129.16/32` (DNS interno)
 
 
 ## 52. Hands On - Testando conectividade entre Subnets
@@ -93,7 +98,7 @@ az network vnet create \
             - Virtual network: para uma outra network
             - Internet: para a internet mesmo
             - Virtual appliance: para um ip especifico
-            - Nome: para lugar nenhum, anulado o acesso
+            - None: para lugar nenhum, anulado o acesso
         - Next hop address: o ip destino 172.16.10.1
 - associa esta Route table a uma subnet
     - No sub menu subnet
