@@ -1,6 +1,6 @@
 # Seção 3: Design Identity Management
 
-Repetido totalmente do AZ-300 - Seção 7: Gerenciamento e Segurança
+> Repetido totalmente do [AZ-300 - Seção 7: Gerenciamento e Segurança](../../AZ-300/07_gerenciamento_e_seguranca/README.md)
 
 
 ## 7. Sua conta na Azure
