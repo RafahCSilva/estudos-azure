@@ -1,6 +1,14 @@
-# Seção 7: Gerenciamento e Segurança
+# Seção 3: Design Identity Management
 
-## 66. Entendendo o Conceito de Active Directory para Cloud
+Repetido totalmente do AZ-300 - Seção 7: Gerenciamento e Segurança
+
+
+## 7. Sua conta na Azure
+
+https://azure.microsoft.com/en-gb/free/
+
+
+## 8. Entendendo o Conceito de Active Directory para Cloud
 
 - Cadastro de Usuário centralizado
 - Grupos de Usuários
@@ -19,18 +27,18 @@
         - $$$ mias caro
 
 
-## 67. Quando custa utilizar o Azure AD
+## 9. Quando custa utilizar o Azure AD
 
 https://azure.microsoft.com/en-us/pricing/details/active-directory/
 
 
-## 68. Hands On - Criando um novo Azure AD Tenant
+## 10. Hands On - Criando um novo Azure AD Tenant
 
 - O AD agrupa por cima as Subscritions
 - Criar um tenent cria um novo modo de login
 
 
-## 69. Hands On - Criando Grupos e Usuários no Azure AD
+## 11. Hands On - Criando Grupos e Usuários no Azure AD
 
 - Criar um novo Grupo:
     - Group Type: security (users monitorados, quais perm), Office365 (security somado ao poder usar o Office365)
@@ -40,7 +48,7 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory/
     - Um CRUD de usuario, podendo resetar senta e etcs
 
 
-## 70. Hands On - Habilitando MFA na sua Conta da Azure
+## 12. Hands On - Habilitando MFA na sua Conta da Azure
 
 - Na listagem de usuarios, há o link para o Multi-Factor Authentication
 - listas os users e se ele esta habilitado
@@ -48,7 +56,7 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory/
     - ou forcar q use sempre
 
 
-## 71. Hands On - Habilitando o Azure AD Self Service Password
+## 13. Hands On - Habilitando o Azure AD Self Service Password
 
 - possibilitar q o usuario consiga recuperar 
 - recurso desabilitado por default, logo tem ser habilitado pelo admin
@@ -56,7 +64,7 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory/
 - na habilitação: None, selected (para grupos selecionados) ou all
 
 
-## 72. Entendendo sobre o Azure AD Connect
+## 14. Entendendo sobre o Azure AD Connect
 
 - Sincroniza o AD local com da Azure
 - Edição de Usuário sincronizada
@@ -68,17 +76,17 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory/
     - https://docs.microsoft.com/pt-br/azure/active-directory/hybrid/tutorial-password-hash-sync
 
 
-## 73. Hands On - Criando o cenário para o Azure AD Connect
+## 15. Hands On - Criando o cenário para o Azure AD Connect
 
 - Instala o Windows Server 2019
 
 
-## 74. Hands On - Instalando e Configurando o Active Directory no Windows 2019
+## 16. Hands On - Instalando e Configurando o Active Directory no Windows 2019
 
 - Instala o AD Server na VM
 
 
-## 75. Hands On - Configurando o Azure AD Connect
+## 17. Hands On - Configurando o Azure AD Connect
 
 - dentro da VM, acessa o azure, vai no AAD
 - no submenu Azure AD Connect, baixa o client e instala
@@ -88,13 +96,13 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory/
     - por fim inicie a Sync, e instalará e será configurado o servico de sync do AD
 
 
-## 76. Hands On - Testando a Syncronizacao do AD Connect
+## 18. Hands On - Testando a Syncronizacao do AD Connect
 
 - cria um user de cada lado, espera o tempo e depois verifica se ambos os users constam dos dois lados
 - demora um pequeno tempo até a sync acontecer
 
 
-## 77. Hands On - Monitorado com o Azure AD Connect Health
+## 19. Hands On - Monitorado com o Azure AD Connect Health
 
 - Instalado dentro do AD local, e envia relatorios para o Azure, monitorando se há problemas
 - no mesmo submenu do Azure AD Connect, há o topico do "HEALTH AND ANALYTICS"
@@ -106,7 +114,7 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory/
         - qdo soliciatar login, use as credenciais do user q tem Global Administrator
 
 
-## 78. Conceitos de PIM
+## 20. Conceitos de PIM
 
 - PIM = Privileged Identity Management do Azure AD
     - um serviço que permite gerenciar, controlar e monitorar o acesso a importantes recursos (incluindo Azure, AAD, Office365 etc) em sua organização
@@ -156,7 +164,7 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory/
         - *principle of least privilege access* princípio de acesso de privilégios mínimos: todos com role o minimo
 
 
-## 79. Hands On - Configurando PIM para AD Roles
+## 21. Hands On - Configurando PIM para AD Roles
 
 - para SOMENTE ROLES do AD
 - vai em um user do AD, add ele a role Global Admin
@@ -175,7 +183,7 @@ https://azure.microsoft.com/en-us/pricing/details/active-directory/
     - My audit history: log do q vc fez
 
 
-## 80. Hands On - Habilitando PIM RBAC
+## 22. Hands On - Habilitando PIM RBAC
 
 - para SOMENTE ROLES do Azure Resource
 - No menu PIM, no submenu Azure Resource
