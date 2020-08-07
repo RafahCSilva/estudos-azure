@@ -1,9 +1,11 @@
-# Seção 6: Networking e Scaling
+# Seção 10: Networking
 
-## 48. Conceitos sobre VNet e suas funcionalidades
+> Repetido totalmente do [AZ-300 - Seção 6: Networking e Scaling](../../AZ-300/06_networking_e_scaling/README.md)
 
 
-## 49. Hands On - Criando a Vnet e Seguimentando as redes
+## 68. Conceitos sobre VNet e suas funcionalidades
+
+## 69. Hands On - Criando a Vnet e Seguimentando as redes
 
 - Vnet
     - ResourceGroup: Free300NetWorkGroup
@@ -12,7 +14,7 @@
             - SubB: 172.16.2.0/24
 
 
-## 50. Endereços Privados e Publicos na Azure
+## 70. Endereços Privados e Publicos na Azure
 
 - IP Address:
     - IPv4 - 32bits -> 4.2 bilhoes
@@ -41,15 +43,15 @@
      - `168.63.129.16/32` (DNS interno)
 
 
-## 51. Hands On - Criando a segunda subnet na VNET
+## 71. Hands On - Criando a segunda subnet na VNET
 
-## 52. Hands On - Testando conectividade entre Subnets
+## 72. Hands On - Testando conectividade entre Subnets
 
 - cria 2 VMs, e na aba network é so selecionar a SubA para a VM1 e a SubB para a VM2
 - abre as VM e faz ping para os IP privado de um para outro
 
 
-## 53. Hands On - Criando VNets utilizando a Linha de Comando (CloudShell)
+## 73. Hands On - Criando VNets utilizando a Linha de Comando (CloudShell)
 
 https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-cli
 https://docs.microsoft.com/en-us/azure/virtual-network/quick-create-powershell
@@ -79,7 +81,7 @@ az network vnet create \
 ````
 
 
-## 54. Conceitos de Roteamento na Microsoft Azure
+## 74. Conceitos de Roteamento na Microsoft Azure
 
 - Routing:
     - Roteamentos padroes:
@@ -89,7 +91,7 @@ az network vnet create \
     - Se quiser criar um firewall para q todo o trafego q saia da Vnet passe por ele, terá q Rotear (UDR - User Define Routing)
 
 
-## 55. Hands On - Configurando Roteamento
+## 75. Hands On - Configurando Roteamento
 
 - Na Home procurar por "Route table", e crie-o (nome: "Routing-Firewall").
 - Para criar uma regra
@@ -108,7 +110,7 @@ az network vnet create \
     - associa a um VNet e a um SubNet
 
 
-## 56. Hands On - Configurando Peers entre Vnets
+## 76. Hands On - Configurando Peers entre Vnets
 
 Para conectar duas VM de VNet diferente, tem q habilitar o sistema de Peering
 
@@ -140,7 +142,7 @@ Para conectar duas VM de VNet diferente, tem q habilitar o sistema de Peering
 - assim criando dois peer, um no VNet1 e outro no VNet2 
 
 
-## 57. O que é Network Security Groups
+## 77. O que é Network Security Groups
 
 - NSG: Network Security Groups
 - network filter (firewall simples)
@@ -152,74 +154,7 @@ Para conectar duas VM de VNet diferente, tem q habilitar o sistema de Peering
 - pode ser aplicado na NIC (VM) ou a Subnet
 
 
-## 58. Hands On - Configurando Network Security Group
-
-- Exercicio: Deny ping da VM1 para VM2 (mesma VNet, mas SubNet diferentes)
-- No menu, Network security groups
-- cria um NSG
-- edita a NSG criada para add alguma rule
-    - Priority: 0 é maior prioridade, +inf é menor prioridade
-    - se uma rule permitir, ele parará de match as seguintes
-- ao add uma in/outbound rule:
-    - Source/Destination pode ser: qlqr um, um ip, um service tag ou um Application security group
-    - Source/Destination port
-    - Protocol: Any, TCP, UDP, ICMP(ping)
-    - Priority number
-    - name
-
-
-## 59. Hands On - Configurando Network Watcher em Windows Server 2019
-
-- Network Watcher, para monitoriar detalhes de conexoes na sua topologia (deve ser habilitado na regiao q estiver)
-    - **Connection monitor**:
-        - cria um Monitor de conexao com a origem e destino de alguma VM e sua porta
-        - criando grafico da visualizacao especifica q vc aapontar
-    - **Network Performance Monitor**
-        - visualizar a performace para cada VM
-    - **IP flow verify**
-        - inputa origem e destino e verifica em ql regra cai, ajuda a verificar problemas de rules, por qual rule esta passando
-        - Network Watcher IP flow verify checks if a packet is allowed or denied to or from a virtual machine based on 5-tuple information. The security group decision and the name of the rule that denied the packet is returned.
-            - O fluxo IP do Network Watcher verifica se um pacote é permitido ou negado para ou de uma máquina virtual com base em informações de cinco tuplas. A decisão do grupo de segurança e o nome da regra que negou o pacote são retornados.
-    - **Next hop**
-        - verifica para por onde o trafego esta indo, ql VNet ou gateway
-        - Next Hop provides the next hop from the target virtual machine to the destination IP address.
-            - O Próximo salto fornece o próximo salto da máquina virtual de destino para o endereço IP de destino.
-    - **Effective security rules**
-        - lista quais regras esta habilitada para um VM, listando todas
-    - **Packet capture** (WireShark virtual das vm)
-        - Capturar todos os pacotes (in e out) q trafegarem em uma VM, analogo ao WireShark, salvando no blobstorage
-    - **Connection troubleshoot**
-        - Testa se é possivel conectar de um VM (ou app Gateway) para outro IP (ou VM)
-
-
-## 60. Conexões tipo S2S e P2S VPN com a Azure
-
-- S2S = Site-to-Site VPN
-    - Fisica
-        - Router ou firewall
-            - usa uma conexao de IPsec, com IKE1 e IKE2 para a *VPN Gateway*, encriptando o trafego
-- P2S = Ponti-to-site
-    - de um ponto (no PC) para o VPN Gateway (via um SSTP tunnel)
-- Express Route = office_fisico + cloud
-
-
-## 61. Utilizando o Express Route da Azure
-
-https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
-
-- Express Route = office_fisico + cloud
-    - melhor solucao para migracao
-    - no seu parceiro ISP, contrata um link dedicado da emprsa fisica até o ISP, e o IPS do mesmo parceiro chega até os datacenter da azure, e entre o ISP tem o express Route Circuit Primaty (e o secondary)
-        - Como os links sao dedicados da empresta até a azure, tem velocidade full contratada e melhor desemprenho
-    - se o office fisico ja se conecta a um DataCenter, e o data center ao azure, isso se chama Cloud Exchange Co-location 
-- Point-to-Point Ethernet Connection
-    - a provedora liga o office ao cloud
-- Any-to-Any Connection
-    - se varios offices estao interconectados por um WAN (conexao em anel)
-    - Coloca um Express Route ligando o anel ao Cloud
-
-
-## 62. Conceitos de Load Balancer
+## 78. Conceitos de Load Balancer
 
 - Load Balancer
     - ele trabalha na camada 4 (layer 4)
@@ -236,7 +171,7 @@ https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
         - tanto com Private ou Public IP (privado qdo é um LB entre VM e DB replicados)
 
 
-## 63. Hands On - Preparando o Lab para Load Balancer
+## 79. Hands On - Preparando o Lab para Load Balancer
 
 Topologia:
 - Resource Group -> WebServer App
@@ -256,7 +191,7 @@ Topologia:
     - Script para instalr o apache e editar o index para falar q é a 1 (ou a 2 ou 3)
 
 
-## 64. Hands On - Configurando Load Balancer para Servidores Web
+## 80. Hands On - Configurando Load Balancer para Servidores Web
 
 - Vai em cada VM e desativa o ip publico de cada, para nao ter acesso a internet
 - No menu, vai em Load balancers, e add "lb-webserverapp"
@@ -289,4 +224,4 @@ Topologia:
     - reativa a VM, e ela volta a aparecer
 
 
-## 65. Removendo o Resource Group
+## 81. Removendo o Resource Group
