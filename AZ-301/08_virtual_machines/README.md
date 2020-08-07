@@ -209,7 +209,10 @@ DNS server, troca o ip q ele usara para dns
 
 ## 56. Aprendendo sobre Availability Set
 
-Plano de contigencia para caso uma data center caia
+- **Availability Set: Dividir os recursos em racks diferentes dentro do mesmo Data Center**
+- **Availability Zone: Dividir os recursos em Data Center diferentes dentro da mesma região.**
+
+Plano de contigencia para caso uma hack do data center caia
 
 - Fault Domain: sao os racks, vc escolhe em quantos hacks vai ter a replica
 - Update Domain: qdo precisa fazer um update de hardware, ai move-se para outro enquanto faz update
