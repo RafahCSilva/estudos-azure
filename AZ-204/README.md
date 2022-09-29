@@ -19,7 +19,7 @@ Modules:
 
 > A **presença** é preencher a **pesquisa diário** até meio-dia do dia seguinte;
 
-## Aula 1 - Intro e configurações do ambiente
+## Aula 1: Intro e configurações do ambiente
 
 - introdução
 - apresentação dos módulos
@@ -58,7 +58,7 @@ Modules:
     - `New-AzResourceGroup -Name RG01 -Location eastus`
     - `Remove-AzResourceGroup -Name RG01 -AsJob -f`
 
-## Aula 2 - Az App Service
+## Aula 2: mod01 - Az App Service
 
 - Azure App Service core concepts
 - Creating an Azure App Service app
@@ -124,7 +124,68 @@ Modules:
     - [Microsoft Azure - WebApp - Deploy via Local GIT](https://youtu.be/h7Y07xaAR1o)
 - Lab Slot:
 
-## Aula 3
+## Aula 3: lab01 e mod02 - Azure Functions
+
+### lab01
+
+- fazendo um exemplo com dotnet com deploy em zip ou FTP
+    - Cria um pj de dotnet
+      ````shell
+      # logar na ambiente-VM
+      cd C:/www/mod01
+      dotnet new mvc
+      dotnet dev-certs https --trust
+      # Build
+      dotnet run
+      dotnet publish -c release -o dist
+      ````
+    - criar script para create webapp
+    - zipa o conteúdo de `/dist/`, cria script para Deploy do zip e run `.\create-webapp.ps1`
+    - outro método, abre o FTP, faz upload do conteúdo de `/dist/` e run `.\deploy-webapp.ps1`
+- fazendo agora o [Lab01](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_01.html)
+
+### Azure Functions
+
+- What can Azure Functions do?
+    - Run code based on HTTP requests
+    - Schedule code to run at predefined times
+    - Process new and modified:
+        - Azure Cosmos DB documents
+        - Azure Storage blobs
+        - Azure Queue storage messages
+    - Respond to Azure Event Grid events by using subscriptions and filters
+    - Respond to high volumes of Azure Event Hubs events
+    - Respond to Azure Service Bus queue and topic messages
+
+- definido pelo tempo de execução, 3 tipos de planos:
+    - Consumption: max 5min
+    - Premium: configurável o tempo máximo, acesso a rede, aceita containers
+    - App Service plan
+- O escalamento é controlado pela plataforma
+- Bindings
+    - Declarative way to connect to data from your code:
+        - Connect to services without writing plumbing code
+        - Service credentials are not stored code
+        - Bindings are optional
+    - Function can have multiple input and output bindings
+    - Output bindings can send data to Azure services such as:
+        - Storage
+        - Azure Cosmos DB
+        - Service Bus
+- Best practices
+    - Avoid long-running functions:
+        - Functions that run for a long time can time out
+    - Use queues for cross-function communication:
+        - If you require direct communication, consider Durable Functions or Azure Logic Apps
+    - Write stateless functions:
+        - Functions should be stateless and idempotent
+        - State data should be associated with your input and output payloads
+    - Code defensively:
+        - Assume that your function might need to continue from a previous fail point
+
+- o "Function App" é uma container de "Functions" de uma mesma linguagem
+- cada "Functions" pode ser Triggado ou ter bindings
+- cada "Functions" pode ser deployado
 
 ## Aula 4
 
