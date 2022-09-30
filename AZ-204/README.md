@@ -189,6 +189,49 @@ Modules:
 
 ## Aula 4
 
+- [lab02](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_02.html)
+
+````shell
+func new --template "HTTP trigger" --name "Echo"
+#    Use the up/down arrow keys to select a template:HTTP trigger
+#    Function name: [HttpTrigger] Writing C:\www\lab02\Echo\index.js
+#    Writing C:\www\lab02\Echo\function.json
+#    The function "Echo" was created successfully from the "HTTP trigger" template.
+npm i
+func start --build
+#    Azure Functions Core Tools
+#    Core Tools Version:       4.0.4785 Commit hash: N/A  (64-bit)
+#    Function Runtime Version: 4.10.4.19213
+#    Functions:
+#            Echo: [GET,POST] http://localhost:7071/api/Echo
+#    [2022-09-29T22:58:47.278Z] Worker process started and initialized.
+#    [2022-09-29T22:58:48.138Z] Executing 'Functions.Echo' (Reason='This function was programmatically called via the host APIs.', Id=0cffc78f-496b-40c1-8d84-b17a52b64013)
+#    [2022-09-29T22:58:48.205Z] Received a request { query: { a: 's', q: '2' }, body: {} }
+#    [2022-09-29T22:58:48.208Z] Executed 'Functions.Echo' (Succeeded, Id=0cffc78f-496b-40c1-8d84-b17a52b64013, Duration=70ms)
+func new --template "Timer trigger" --name "Recurring"
+#    Use the up/down arrow keys to select a template:Timer trigger
+#    Function name: [TimerTrigger] Writing C:\www\lab02\Recurring\index.js
+#    Writing C:\www\lab02\Recurring\readme.md
+#    Writing C:\www\lab02\Recurring\function.json
+#    The function "Recurring" was created successfully from the "Timer trigger" template.
+
+func azure functionapp publish rcslab02funcstor2
+#    Getting site publishing info...
+#    Uploading package...
+#    Uploading 172.41 MB [#############################################################################]
+#    Upload completed successfully.
+#    Deployment completed successfully.
+#    Syncing triggers...
+#    Functions in rcslab02funcstor2:
+#        Echo - [httpTrigger]
+#            Invoke url: https://rcslab02funcstor2.azurewebsites.net/api/echo
+#    
+#        GetSettingInfo - [httpTrigger]
+#            Invoke url: https://rcslab02funcstor2.azurewebsites.net/api/getsettinginfo
+#    
+#        Recurring - [timerTrigger]
+````
+
 ## Aula 5
 
 ## Aula 6
