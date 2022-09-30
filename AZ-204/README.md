@@ -146,6 +146,7 @@ Modules:
 
 ### Azure Functions
 
+- [Preparing for AZ-204 - Develop Azure compute solutions (1 of 5)](https://learn.microsoft.com/en-us/shows/exam-readiness-zone/preparing-for-az-204-develop-azure-compute-solutions-1-of-5)
 - What can Azure Functions do?
     - Run code based on HTTP requests
     - Schedule code to run at predefined times
@@ -231,6 +232,11 @@ func azure functionapp publish rcslab02funcstor2
 #    
 #        Recurring - [timerTrigger]
 ````
+
+Azure Blob Storage
+
+- fazendo o Mod03
+- fazendo o [lab03](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_03.html#instructions)
 
 ## Aula 5
 
