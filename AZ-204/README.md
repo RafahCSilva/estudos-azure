@@ -58,7 +58,9 @@ Modules:
     - `New-AzResourceGroup -Name RG01 -Location eastus`
     - `Remove-AzResourceGroup -Name RG01 -AsJob -f`
 
-## Aula 2: mod01 - Az App Service
+## Aula 2: mod01 - App Service
+
+### App Service
 
 - Azure App Service core concepts
 - Creating an Azure App Service app
@@ -126,7 +128,7 @@ Modules:
 
 ## Aula 3: lab01 e mod02 - Azure Functions
 
-### lab01
+### App Service
 
 - fazendo um exemplo com dotnet com deploy em zip ou FTP
     - Cria um pj de dotnet
@@ -188,7 +190,9 @@ Modules:
 - cada "Functions" pode ser Triggado ou ter bindings
 - cada "Functions" pode ser deployado
 
-## Aula 4
+## Aula 4: lab02, mod03, lab03 - AppFunctions e Blob Storage
+
+### AppFunctions
 
 - [lab02](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_02.html)
 
@@ -233,14 +237,62 @@ func azure functionapp publish rcslab02funcstor2
 #        Recurring - [timerTrigger]
 ````
 
-Azure Blob Storage
+### Azure Blob Storage
 
 - fazendo o Mod03
 - fazendo o [lab03](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_03.html#instructions)
 
-## Aula 5
+## Aula 5: mod04, lab04 e mod05 - CosmoDB e IasS
+
+### CosmoDB
+
+- Replicação Global
+- níveis de consistência
+- low latency
+- elastic scale-out
+- Vários tipos
+    - SQL, mas bem limitado em relação a qlqr outra sql
+    - MongoDB
+    - table API (key-value)
+    - Gremlin (graph)
+    - Cassandra
+- Tudo compatível com drivers e tools originais
+- Resource hierarchy: Account > Database > Container (Collection/Graph/Table) > Item, Sproc, Trigger, user-defined function, Conflict
+    - Account: A set of databases
+    - Database: Logical container for containers that can (optionally) share throughput across the containers
+    - Collection (container): A group of Items and programmatic resources usually related in some way
+    - Document (item): An arbitrary unit of content. In many cases, this would be a JSON document
+    - Stored procedure (sproc): Application logic written in JavaScript executed within the database engine as a transaction
+    - Trigger: Application logic written in JavaScript executed before or after either an insert, replace, or delete operation
+    - User-defined function: Application logic written in JavaScript to extend the SQL API query language
+- Throughput
+    - Request Units (RU's) 1KB=1RU, no mínimo 10 RU para cada 1GB
+- Tip: qdo fazer Where, passar sempre a partitionKey para nao varrer tudo e asim nao gera alto custo
+- Mod04
+
+````shell
+cd mod04-CosmosDB
+dotnet new console
+dotnet add package Microsoft.Azure.Cosmos
+````
+
+- [lab04](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_04.html)
+
+### IasS VMs
+
+- VM pricing models
+    - Two primary costs for every VM:
+        - Storage — The cost of storing data in every virtual hard disk. This cost is independent of whet er the VM is running
+        - Compute — The usage-based price for compute capacity when the VM is currently allocated
+    - There are two payment options for compute costs:
+        - Pay as you go — Compute capacity is billed and paid as it is used without a long-term commitment
+        - Reserved instances — Compute capacity can be pre-purchased at a reduced rate for anticipated usage
+
+#### IasS Deploy templates
 
 ## Aula 6
+
+### IasS Docker
 
 ## Aula 7
 
