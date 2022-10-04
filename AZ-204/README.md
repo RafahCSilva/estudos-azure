@@ -294,6 +294,60 @@ dotnet add package Microsoft.Azure.Cosmos
 
 ### IasS Docker
 
+- provisionando na VM:
+    - Instalar [Docker Desktop](https://www.docker.com/).
+    - Instalar [WSL](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+    - Reiniciar VM e startar o Docker
+    - `docker run hello-world`
+
+- mod05-IasSDocker
+    - Dockerfile simples
+      ````shell
+      cd mod05-IasSDocker
+      dotnet new mvc --no-https
+      dotnet publish -c release -o dist
+      docker build . -t demoaspnet:1 -f Dockerfile.simple
+      docker run --rm -d -p 8081:80 demoaspnet:1
+      start http://localhost:8081/
+      ````
+    - Dockerfile com multi-stage building
+      ````shell
+      docker build . -t demoaspnet:1 -f Dockerfile.mult
+      docker run --rm -d -p 8081:80 demoaspnet:1
+      ````
+    - Suba no docker hub e baixe-o
+      ````shell
+      docker pull fabianonalin/demoaspnet
+      docker run --rm -d -p 8082:80 fabianonalin/demoaspnet
+      start http://localhost:8082
+      ````
+- **ACR** - Azure Container Registry
+    - Cria e da Push
+      ````shell
+      .\create-acr.ps1
+      docker tag demoaspnet:2 rcsmod05demoacr.azurecr.io/demoaspnet:2
+      az acr login -n rcsmod05demoacr
+      docker push rcsmod05demoacr.azurecr.io/demoaspnet:2
+      ````
+    - Baixa e executa
+      ````shell
+      docker run --rm -d -p 8083:80 rcsmod05demoacr.azurecr.io/demoaspnet:2
+      ````
+
+- **ACI** - Azure Container Instance
+    - para rodar container na cloud
+      ````shell
+      .\aci-create.ps1
+      .\aci-enable.ps1
+      ````
+
+- [lab05](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_05.html)
+    - fazer build da image na cloud
+    - rodar a imagem de 3 jeitos
+        - pelo az cli / cloud shell
+        - vai até a version da imagem, clica no "..." e "Run Instance" (tem q estar ligadod o admin no ACR)
+        - vai no ACI e cria uma nova instância, apontando o image source ao ACR e selecionar o Registry, image e version-tag
+
 ## Aula 7
 
 ## Aula 8

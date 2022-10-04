@@ -1,0 +1,12 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY mod05-IasSDocker.csproj .
+RUN dotnet restore
+COPY . .
+RUN dotnet publish -c release -o /dist
+
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+COPY --from=build /dist .
+EXPOSE 80/tcp
+ENTRYPOINT ["dotnet", "mod05-IasSDocker.dll"]
