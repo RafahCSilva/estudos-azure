@@ -288,9 +288,9 @@ dotnet add package Microsoft.Azure.Cosmos
         - Pay as you go — Compute capacity is billed and paid as it is used without a long-term commitment
         - Reserved instances — Compute capacity can be pre-purchased at a reduced rate for anticipated usage
 
-#### IasS Deploy templates
+### IasS Deploy templates
 
-## Aula 6
+## Aula 6: mod05 e lab05 - IasS
 
 ### IasS Docker
 
@@ -348,7 +348,36 @@ dotnet add package Microsoft.Azure.Cosmos
         - vai até a version da imagem, clica no "..." e "Run Instance" (tem q estar ligadod o admin no ACR)
         - vai no ACI e cria uma nova instância, apontando o image source ao ACR e selecionar o Registry, image e version-tag
 
-## Aula 7
+## Aula 7: mod06, lab06 e lab07 - AD e Security
+
+### AD
+
+- MSAL = MicroSoft Authentication Library
+- [lab06](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_06.html)
+
+### Key Vault
+
+- Azure Key Vault
+  ````shell
+  $rg="RG-Security"
+  $loc="eastus"
+  $vault="rcsmyvault$(Get-Random)"
+  az group create -g $rg -l $loc
+  az keyvault create -n $vault -g $rg -l $loc
+  az keyvault secret set --vault-name $vault --name "DatabasePassword" --value "Passw.rd1234"
+  az keyvault secret show --vault-name $vault -n "DatabasePassword"
+  ````
+
+### Az AD manager identity
+
+- credenciais fora do codigo
+- 2 tipo:
+    - User-assinged: 1 user para varios recursos
+    - System-assinged: 1 user para 1 recurso, e ao deletar recurso a indentidade deleta junto
+
+### AZ App Configuration
+
+- [lab07](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_07.html)
 
 ## Aula 8
 
