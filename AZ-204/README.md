@@ -379,7 +379,59 @@ dotnet add package Microsoft.Azure.Cosmos
 
 - [lab07](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_07.html)
 
-## Aula 8
+## Aula 8: lab08 e lab09 - APIM, Event Grid e Event Hub
+
+### APIM - API Management
+
+- Segurança de API para acesso anonimo ou nao permitido
+- Terminology
+    - **Backend API**: A HTTP service that you implement with your business logic
+    - **Frontend API**: A HTTP service façade hosted by API Management to obfuscate your back-end API
+    - **Product**: One or more APIs in a package, can be open (free to use without any subscription) or protected (must be subscribed to before use)
+    - **Operation**: A specific operation in the front-end API that correlates to a specific request/response from the backend API
+        - Na operation vc pode adicionar inbound/outbound policy entre a Frontend e a Backend
+- mod08
+  ````powershell
+  $rg = "RG-mod08APIM"
+  $loc = "eastus"
+  az group create -n $rg -l $loc
+  
+  $apim = "apim-$( Get-Random )"
+  $email = "admin@contoso.com"
+  $publisher = "Contoso"
+  az apim create `
+    -n $apim `
+    --sku-name Consumption `
+    -l $loc -g $rg `
+    --publisher-email $email `
+    --publisher-name $publisher
+  ````
+
+- [lab08](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_08.html)
+
+### Event Grid
+
+- mod09
+  ````shell
+  let rNum=$RANDOM*$RANDOM
+  myLocation=eastus
+  myTopicName="az204-egtopic-${rNum}"
+  mySiteName="az204-egsite-${rNum}"
+  mySiteURL="https://${mySiteName}.azurewebsites.net"
+  
+  az group create --name az204-evgrid-rg --location $myLocation
+  az provider register --namespace Microsoft.EventGrid
+  az provider show -n Microsoft.EventGrid
+  az provider show -n Microsoft.EventGrid --query "registrationState"
+  az eventgrid topic create --name $myTopicName \ 
+      --location $myLocation \
+      --resource-group az204-evgrid-rg
+  ````
+
+### Event Hub
+
+- mais usado para IoT e telemetria
+- [lab09](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_09.html)
 
 ## Aula 9
 
