@@ -433,6 +433,74 @@ dotnet add package Microsoft.Azure.Cosmos
 - mais usado para IoT e telemetria
 - [lab09](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_09.html)
 
-## Aula 9
+## Aula 9: mod10, lab10, mod11 e lab11 - Service Bus e App Insights
+
+### Az Service Bus
+
+- possibilita os apps de interagir entre si
+- usa namespace para escopar as mensagens
+- 2 mecanismos de comunicação: Queue e Topics
+
+- Events vs Messagin services
+    - Event Grid:
+        - Propose: Reactive programming
+        - Type: Big data pipeline
+        - When to use: High-value enterprise messaging
+    - Event Hub:
+        - Propose: Event distribution (discrete)
+        - Type: Event streaming (series)
+        - When to use: Message
+    - Service Bus:
+        - Propose: React to status changes
+        - Type: Telemetry and distributed data streaming
+        - When to use: Order processing and financial transactions
+
+
+- Queues
+    - Messages are sent to and received from queues
+    - Enables you to store messages until the receiving application is available to receive and process them
+    - Supports a brokered messaging communication model
+    - A general-purpose technology that can be used for a wide variety of scenarios
+
+- Topics and subscriptions
+    - Implements publish/subscribe (pub-sub) model
+    - Receivers subscribe to a topic, and they can even filter down by interest
+        - A sender publishes messages to the topic
+        - Asynchronously, receivers get their own copy of the message
+    - Subscriptions are independent, which allows for many independent "taps" into a message stream
+
+- Primeiro cria o namespace e depois a entidade fila ou topico
+    ````powershell
+    $rg="ServiceBUSRG"
+    $loc="eastus"
+    az group create -n $rg -l $loc
+    $svcbus="myservicebus$(Get-Random)"
+    az servicebus namespace create -g $rg -l $loc -n $svcbus
+    $queue="az204-queue"
+    az servicebus queue create -g $rg --namespace-name $svcbus -n $queue
+    dotnet new console -n Sender
+    dotnet new console -n Receiver
+    dotnet add package Azure.Messaging.ServiceBus
+    ````
+
+- [lab10](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_10.html)
+
+### Az Queue Storage
+
+- lib cliente parecido com do blob
+- diferenças:
+    - Az Service Bus
+        - é mais enterprise por ter tópicos e coisas avancadas
+        - pode ser tópico ou fila
+        - trabalha com outros protocolos
+        - garante FIFO
+    - Az Queue Storage
+        - somente fila
+        - so trabalho com HTTP
+        - faz, mas nao garante FIFO
+
+### App Insights
+
+- [lab11](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_11.html)
 
 ## Aula 10
