@@ -144,7 +144,7 @@ Modules:
     - criar script para create webapp
     - zipa o conteúdo de `/dist/`, cria script para Deploy do zip e run `.\create-webapp.ps1`
     - outro método, abre o FTP, faz upload do conteúdo de `/dist/` e run `.\deploy-webapp.ps1`
-- fazendo agora o [Lab01](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_01.html)
+- fazendo agora o [Lab 01: Build a web application on Azure platform as a service offerings](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_01.html)
 
 ### Azure Functions
 
@@ -194,7 +194,7 @@ Modules:
 
 ### AppFunctions
 
-- [lab02](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_02.html)
+- [Lab 02: Implement task processing logic by using Azure Functions](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_02.html)
 
 ````shell
 func new --template "HTTP trigger" --name "Echo"
@@ -240,7 +240,7 @@ func azure functionapp publish rcslab02funcstor2
 ### Azure Blob Storage
 
 - fazendo o Mod03
-- fazendo o [lab03](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_03.html#instructions)
+- fazendo o [Lab 03: Retrieve Azure Storage resources and metadata by using the Azure Storage SDK for .NET](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_03.html#instructions)
 
 ## Aula 5: mod04, lab04 e mod05 - CosmoDB e IasS
 
@@ -276,7 +276,7 @@ dotnet new console
 dotnet add package Microsoft.Azure.Cosmos
 ````
 
-- [lab04](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_04.html)
+- [Lab 04: Construct a polyglot data solution](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_04.html)
 
 ### IasS VMs
 
@@ -341,7 +341,7 @@ dotnet add package Microsoft.Azure.Cosmos
       .\aci-enable.ps1
       ````
 
-- [lab05](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_05.html)
+- [Lab 05: Deploy compute workloads by using images and containers](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_05.html)
     - fazer build da image na cloud
     - rodar a imagem de 3 jeitos
         - pelo az cli / cloud shell
@@ -353,7 +353,7 @@ dotnet add package Microsoft.Azure.Cosmos
 ### AD
 
 - MSAL = MicroSoft Authentication Library
-- [lab06](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_06.html)
+- [Lab 06: Authenticate by using OpenID Connect, MSAL, and .NET SDKs](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_06.html)
 
 ### Key Vault
 
@@ -377,7 +377,7 @@ dotnet add package Microsoft.Azure.Cosmos
 
 ### AZ App Configuration
 
-- [lab07](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_07.html)
+- [Lab 07: Access resource secrets more securely across services](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_07.html)
 
 ## Aula 8: lab08 e lab09 - APIM, Event Grid e Event Hub
 
@@ -407,7 +407,7 @@ dotnet add package Microsoft.Azure.Cosmos
     --publisher-name $publisher
   ````
 
-- [lab08](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_08.html)
+- [Lab 08: Create a multi-tier solution by using Azure services](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_08.html)
 
 ### Event Grid
 
@@ -431,7 +431,7 @@ dotnet add package Microsoft.Azure.Cosmos
 ### Event Hub
 
 - mais usado para IoT e telemetria
-- [lab09](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_09.html)
+- [Lab 09: Publish and subscribe to Event Grid events](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_09.html)
 
 ## Aula 9: mod10, lab10, mod11 e lab11 - Service Bus e App Insights
 
@@ -483,7 +483,7 @@ dotnet add package Microsoft.Azure.Cosmos
     dotnet add package Azure.Messaging.ServiceBus
     ````
 
-- [lab10](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_10.html)
+- [Lab 10: Asynchronously process messages by using Azure Service Bus Queues](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_10.html)
 
 ### Az Queue Storage
 
@@ -501,6 +501,33 @@ dotnet add package Microsoft.Azure.Cosmos
 
 ### App Insights
 
-- [lab11](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_11.html)
+- [Lab 11: Monitor services that are deployed to Azure](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_11.html)
 
-## Aula 10
+## Aula 10: mod12 e lab12 - Redis e CDN
+
+### Azure Cache for Redis
+
+- Redis
+    - NoSQL de Key-value
+    - Boas praticas: usar namespaces
+    - mod12
+      ````shell
+      $rg="RedisDemoRG"
+      $loc="eastus"
+      az group create -n $rg -l $loc
+      $redis="az204redis$(Get-Random)"
+      az redis create -l $loc -g $rg -n $redis --sku Basic --vm-size c0
+      dotnet new console -n RediscacheDemo
+      dotnet add package StackExchange.Redis
+      ````
+
+### CDN
+
+- Content Devivery NerWork
+- Devivering public static resources, shared content
+- Streaming video files
+- IoT solutions, firmwares to update each device
+- POP (point of Presence): apos a primeira request, armazena e distribui do cache para os demais requesters
+- Dominos
+- expiração de cache com regras
+- [Lab 12: Enhance a web application by using the Azure Content Delivery Network](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/Instructions/Labs/AZ-204_lab_12.html)
